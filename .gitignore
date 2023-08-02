@@ -10,3 +10,15 @@ yarn-error.log
 
 # Code coverage
 coverage
+
+# Certificates
+/src/certs/
+
+# DS Store
+.DS_Store
+
+# Local stored passes
+*.pkpass
+
+# Service Account
+serviceAccount.json

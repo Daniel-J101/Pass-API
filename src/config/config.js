@@ -52,11 +52,13 @@ module.exports = {
   },
   email: {
     smtp: {
-      host: envVars.SMTP_HOST,
-      port: envVars.SMTP_PORT,
+      service: envVars.SMPT_SERVICE,
       auth: {
+        type: envVars.SMTP_AUTH_TYPE,
         user: envVars.SMTP_USERNAME,
-        pass: envVars.SMTP_PASSWORD,
+        clientId: envVars.SMTP_CLIENT_ID,
+        clientSecret: envVars.SMTP_CLIENT_SECRET,
+        refreshToken: envVars.SMTP_REFRESH_TOKEN,
       },
     },
     from: envVars.EMAIL_FROM,

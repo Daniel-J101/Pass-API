@@ -24,6 +24,27 @@ const sendEmail = async (to, subject, text) => {
 };
 
 /**
+ * send pass email
+ * @param {string} recipient email
+ * @param {Buffer} pass buffer for pkpass
+ */
+const sendPassEmail = async (recipient, pass) => {
+  const msg = {
+    from: config.email.from,
+    to: recipient,
+    subject: 'Your Apple Wallet ID Card',
+    text: 'Attached is your Apple Wallet ID Card. Please open this email on your iPhone and tap the attachment to add it to your Apple Wallet.',
+    attachments: [
+      {
+        filename: 'card.pkpass',
+        content: pass,
+      },
+    ],
+  };
+  await transport.sendMail(msg);
+};
+
+/**
  * Send reset password email
  * @param {string} to
  * @param {string} token
@@ -60,4 +81,5 @@ module.exports = {
   sendEmail,
   sendResetPasswordEmail,
   sendVerificationEmail,
+  sendPassEmail,
 };
